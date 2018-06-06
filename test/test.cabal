@@ -21,5 +21,5 @@ executable test
   -- other-extensionu
   build-depends:       base >=4.12 && <4.13, hashtag-coerce
   hs-source-dirs:      src
-  ghc-options: -fplugin=CoercePlugin
+  ghc-options: -fplugin=HashtagCoerce
   default-language:    Haskell2010

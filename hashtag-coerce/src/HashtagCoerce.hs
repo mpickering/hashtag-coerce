@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE ViewPatterns #-}
 {-# LANGUAGE PatternSynonyms #-}
-module CoercePlugin where
+module HashtagCoerce where
 
 import GhcPlugins
 import TcRnTypes
@@ -23,7 +23,7 @@ plugin = defaultPlugin  {
   }
 
 warnCoerce :: LHsExpr GhcTc -> TcM ()
-warnCoerce (L l e) =
+warnCoerce (L l _) =
   setSrcSpan l $
   add_warn NoReason msg empty  --(ppr e)
   where
@@ -32,7 +32,6 @@ warnCoerce (L l e) =
 install :: [CommandLineOption] -> ModSummary -> TcGblEnv -> TcM TcGblEnv
 install _ _ tc_gbl = do
   let binds = tcg_binds tc_gbl
-  dflags <- getDynFlags
   let res = checkBinds binds
   mapM_ warnCoerce res
   return tc_gbl

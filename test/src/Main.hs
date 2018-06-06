@@ -7,7 +7,7 @@ import Data.Coerce
 b = ()
 
 main :: IO ()
-main = print a
+main = print b
 
 newtype Nev = Nev Int
 

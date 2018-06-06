@@ -1,13 +1,6 @@
 module ModuleA where
 
-c = ()
+newtype Baz = Baz Int
 
-
-b = a
-
-a = ()
-
-
-
-
-
+qux :: [Int] -> [Baz]
+qux = map Baz

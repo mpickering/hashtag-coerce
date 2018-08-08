@@ -29,4 +29,4 @@ The plugin can only be used with GHC 8.6.1 which is scheduled to be released at
 the end of June.
 
 In order to run the plugin, add `hashtag-coerce` as a dependency and
-compiler with `-fplugin=HashtagCoerce`.
+compile with `-fplugin=HashtagCoerce`.
